@@ -16,6 +16,13 @@
     transition: opacity 3000ms ease-in-out;
 }
 
+.editarTarefa:hover{
+
+    opacity: 1;
+
+}
+
+
 .checkBoxScale {
     transition: all 2s ease-in;
 }

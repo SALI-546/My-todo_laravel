@@ -50,6 +50,25 @@ function Todo(props) {
 
     }
 
+    const deleteTodo = async () => {
+        const headers = {
+            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr('content'),
+            "Content-type": "application/json; charset=UTF-8"
+        };
+        // const csrfToken = document.querySelector('meta[name="description"]').content
+        console.log($('meta[name="csrf-token"]').attr('content'));
+
+        // const data = todoData;
+        const res = await fetch('http://localhost/api/todos', {
+            method: "DELETE",
+            body: JSON.stringify(todoData),
+            headers: headers
+        });
+        const response = await res.json();
+        console.log(response);
+        window.location.href='http://localhost/dashboard';
+    }
+
     const handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
@@ -214,10 +233,12 @@ function Todo(props) {
                 <div className="row justify-content-center">
                     <div className="col-md-12">
                         <div className='mb-5'>
-                        <button className='btn btn-danger float-end '>
+                        <button onClick={ async ()=> {
+                            await deleteTodo();
+                        }} className='btn btn-danger float-end '>
                             
-                            <span> Deletar </span>
-                            <i className="bi bi-x-octagon"></i>
+                            <span style={{color: '#000'}}> Delete </span>
+                            <i style={{color: '#000'}} className="bi bi-x-octagon"></i>
                         </button>
 
                         </div>
@@ -229,7 +250,7 @@ function Todo(props) {
                         <button onClick={()=>{
                             changeEditButtonColor();
                             }} id='editarTarefa' style={{borderColor: 'black'}} className='btn btn-ligth editarTarefa float-end buttonScale' data-toggle="modal" data-target="ModalEditarTarefa">
-                            <span style={{fontWeight: 'bold'}}> Editar </span>
+                            <span style={{fontWeight: 'bold'}}> Edit </span>
                             <i style={{color:'black'}} className="bi bi-pencil-square"></i>
                         </button> 
                         

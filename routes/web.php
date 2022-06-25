@@ -42,6 +42,7 @@ Route::prefix('/api')->middleware(['auth'])->name('dashboard.')->group( function
 
     Route::post('/todos', [TodosController::class, 'store'])->name('store');
     Route::put('/todos', [TodosController::class, 'update'])->name('update');
+    Route::delete('/todos', [TodosController::class, 'destroy'])->name('delete');
     // Route::get('/todos/{id}', [TodosController::class, 'index'])->name('index');
     Route::get('/todos_status', [TodosStatusController::class, 'index'])->name('todos_status_index');
     // Route::get('/todos_status/{id}', [TodosController::class, 'index'])->name('index');

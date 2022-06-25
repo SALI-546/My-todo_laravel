@@ -168,8 +168,20 @@ class TodosController extends Controller
      * @param  \App\Models\Todos  $todos
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Todos $todos)
+    public function destroy(Request $request)
     {
         //
+        $todoId = $request->input('id');
+        $todo = Todos::findOrFail($todoId);
+        $res = $todo->delete();
+
+        $data = ["success"=>false, "message"=> "Error: Cannot find provided ID"];
+
+        if ($res){
+           $data["success"]=true;
+           $data["message"]="Successfully deleted todo id ".$todoId;
+        }
+
+        return $data;
     }
 }
