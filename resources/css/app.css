@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.editarTarefa{
+    -webkit-transition: background-color 3000ms ease-in-out;
+    -moz-transition: background-color 3000ms ease-in-out;
+    -o-transition: background-color 3000ms ease-in-out;
+    -ms-transition: background-color 3000ms ease-in-out;
+    transition: background-color 3000ms ease-in-out;
+
+    -webkit-transition: opacity 3000ms ease-in-out;
+    -moz-transition: opacity 3000ms ease-in-out;
+    -o-transition: opacity 3000ms ease-in-out;
+    -ms-transition: opacity 3000ms ease-in-out;
+    transition: opacity 3000ms ease-in-out;
+}
+
+.checkBoxScale {
+    transition: all 2s ease-in;
+}
+
+.checkBoxScale:hover {
+    transform: scale(200%);
+}
+
+.buttonScale {
+    transition: all 2s ease-in;
+}
+
+.buttonScale:hover {
+    transform: scale(1.7);
+}
