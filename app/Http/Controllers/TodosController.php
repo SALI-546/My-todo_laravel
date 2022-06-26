@@ -48,13 +48,14 @@ class TodosController extends Controller
         // want to broadcast NewMessageNotification event
         // event(new NewTodoEvent($id, $todos));
 
-        $_COOKIE['users_id'] = $id;
+        // $_COOKIE['users_id'] = $id;
         $todos = $todos->reject(function ($todo) {
             return $todo->cancelled;
         });
 
-        $minutes = 120;
-        return response()->json($todos)->withCookie(cookie('users_id', $id, $minutes));
+        // $minutes = 120;
+        // ->withCookie(cookie('users_id', $id, $minutes))
+        return response()->json($todos);
 
     }
 

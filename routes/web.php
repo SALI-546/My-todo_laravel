@@ -50,14 +50,6 @@ Route::prefix('/api')->middleware(['auth'])->name('dashboard.')->group( function
     // return view('dashboard_app');
 });
 
-Route::get('/hello', function (Request $request) {
-    // 2
-    event(new Hello());
-
-    return 'ok';
-
-})->name('new.todo');
-
 // Route::get('broadcast', function () {
 //     return(new Hello());
 // });
