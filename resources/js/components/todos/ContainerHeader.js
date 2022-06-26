@@ -145,7 +145,9 @@ function ContainerHeader(props) {
                     <div className="modal-content">
                     <div className="modal-header">
                         <h5 className="modal-title" id="TituloModalLongoExemplo">New todo</h5>
-                        <button className="close btn-danger rounded" data-dismiss="modal" aria-label="Fechar">
+                        <button  onClick={()=>{
+                            closeEditModal();
+                            }} className="close btn-danger rounded" data-dismiss="modal" aria-label="Fechar">
                         <span className='text-light' aria-hidden="true">&times;</span>
                         </button>
                     </div>
